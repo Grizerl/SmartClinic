@@ -15,12 +15,12 @@ class Service extends Model
         'price'
     ];
 
-  /**
-   * Summary of appointment
-   * @return BelongsTo<Appointment, Service>
-   */
-  public function appointment(): BelongsTo
-  {
-    return $this->belongsTo(Appointment::class);
-  }
+    /**
+     * Summary of appointment
+     * @return BelongsTo<Appointment, Service>
+     */
+    public function appointment(): BelongsTo
+    {
+        return $this->belongsTo(Appointment::class);
+    }
 }
