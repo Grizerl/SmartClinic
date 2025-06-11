@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+class Doctor extends Model
+{
+    protected $table = "doctors";
+    protected $fillable = [
+        'name',
+        'specialization',
+        'phone',
+        'email'
+    ];
+
+    /**
+     * Summary of appointment
+     * @return HasMany<Appointment, Doctor>
+     */
+    public function appointment(): HasMany
+    {
+        return $this->hasMany(Appointment::class);
+    }
+
+    /**
+     * Summary of medical_record
+     * @return HasMany<MedicalRecord, Doctor>
+     */
+    public function medical_record(): HasMany
+    {
+        return $this->hasMany(MedicalRecord::class);
+    }
+}

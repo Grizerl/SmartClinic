@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -20,7 +21,8 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password',
+        'phone',
+        'role'
     ];
 
     /**
@@ -29,20 +31,24 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $hidden = [
-        'password',
         'remember_token',
     ];
 
     /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
+     * Summary of appointment
+     * @return HasMany<Appointment, User>
      */
-    protected function casts(): array
+    public function appointment(): HasMany
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return $this->hasMany(Appointment::class);
+    }
+
+    /**
+     * Summary of medical_record
+     * @return HasMany<MedicalRecord, User>
+     */
+    public function medical_record(): HasMany
+    {
+        return $this->hasMany(MedicalRecord::class);
     }
 }
