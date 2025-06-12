@@ -10,7 +10,7 @@ return new class () extends Migration {
      */
     public function up(): void
     {
-        Schema::create('medical_records', function (Blueprint $table) {
+        Schema::create('medical_records', function (Blueprint $table): void {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')

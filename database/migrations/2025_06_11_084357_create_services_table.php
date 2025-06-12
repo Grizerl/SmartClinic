@@ -12,10 +12,6 @@ return new class () extends Migration {
     {
         Schema::create('services', function (Blueprint $table): void {
             $table->id();
-            $table->unsignedBigInteger('appointment_id');
-            $table->foreign('appointment_id')
-            ->references('id')
-            ->on('appointments')->onDelete('cascade');
             $table->string('name');
             $table->text('description');
             $table->decimal('price', 10, 2);

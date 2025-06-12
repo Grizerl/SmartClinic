@@ -21,7 +21,7 @@ return new class () extends Migration {
             $table->foreign('doctor_id')
             ->references('id')
             ->on('doctors')->onDelete('cascade');
-            $table->enum('status', ['scheduled', 'completed', 'cancelled']);
+            $table->enum('status', ['scheduled', 'completed', 'cancelled'])->default('scheduled');
             $table->timestamps();
         });
     }

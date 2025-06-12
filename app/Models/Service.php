@@ -3,24 +3,25 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Service extends Model
 {
     protected $table = "services";
     protected $fillable = [
-        'appointment_id',
         'name',
         'description',
         'price'
     ];
 
+
     /**
-     * Summary of appointment
-     * @return BelongsTo<Appointment, Service>
+     * Summary of appoinment
+     * @return HasMany<Appointment, Service>
      */
-    public function appointment(): BelongsTo
+    public function appoinment(): HasMany
     {
-        return $this->belongsTo(Appointment::class);
+        return $this->hasMany(Appointment::class);
     }
+
 }

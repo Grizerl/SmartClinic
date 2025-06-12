@@ -32,10 +32,20 @@ class LoginController extends Controller
 
         if ($user) {
             Auth::login($user);
-            return redirect()->route('register.show');
+            return redirect()->route('dashboard.home');
         }
 
         return redirect()->back();
+    }
+
+    /**
+     * Summary of logout
+     * @return mixed|RedirectResponse
+     */
+    public function logout(): RedirectResponse
+    {
+        Auth::logout();
+        return redirect()->route('guest.show');
     }
 
 }
