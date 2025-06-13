@@ -9,13 +9,16 @@
     <header class="bg-blue-600 text-white p-4 shadow">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
             <h1 class="text-xl font-bold">MyClinic</h1>
-            <nav class="space-x-4">
+            <nav class="space-x-4 flex">
                 <form action="{{ route('logout') }}" method="POST">
                 @csrf
                     <button type="submit" class="underline bg-transparent border-none cursor-pointer p-0 m-0">
                         Вийти
                     </button>
                 </form>
+                @can('view', auth()->user())
+                    <a class="underline bg-transparent border-none cursor-pointer p-0 m-0" href="{{ route('dashboard.admin') }}">Адмінка</a>
+                @endcan
             </nav>
         </div>
     </header>
