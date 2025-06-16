@@ -30,7 +30,7 @@
                     <option value="{{ $services->id }}">{{  $services->name }} — {{  $services->price }} грн</option>
                 @endforeach
             </select>
-              @error('service_id')
+            @error('service_id')
                 <div class="text-red-600">{{ $message }}</div>
             @enderror
         </div>

@@ -10,7 +10,9 @@
     <header class="bg-white shadow p-4 flex justify-between items-center">
         <h1 class="text-xl font-bold">Admin Panel</h1>
         <nav class="space-x-4">
-            <a href="" class="text-blue-600 hover:underline">Головна</a>
+            <a href="{{ route('dashboard.admin') }}" class="text-blue-600 hover:underline">Головна</a>
+            <a href="{{ route('doctors.index') }}" class="text-blue-600 hover:underline">Лікарі</a>
+            <a href="{{ route('services.index') }}" class="text-blue-600 hover:underline">Послуги</a>
             <a href="" class="text-blue-600 hover:underline">Новий прийом</a>
             <form method="post" action="{{ route('logout') }}" class="inline">
                 @csrf
