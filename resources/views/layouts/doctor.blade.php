@@ -8,12 +8,11 @@
 </head>
 <body class="bg-gray-100 text-gray-900">
     <header class="bg-white shadow p-4 flex justify-between items-center">
-        <h1 class="text-xl font-bold">Admin Panel</h1>
+        <h1 class="text-xl font-bold">Doctor Panel</h1>
         <nav class="space-x-4">
-            <a href="{{ route('dashboard.admin') }}" class="text-blue-600 hover:underline">Головна</a>
-            <a href="{{ route('doctors.index') }}" class="text-blue-600 hover:underline">Лікарі</a>
-            <a href="{{ route('services.index') }}" class="text-blue-600 hover:underline">Послуги</a>
-            <a href="{{ route('appoinment.page') }}" class="text-blue-600 hover:underline">Прийоми</a>
+            <a href="" class="text-blue-600 hover:underline">Головна</a>
+            <a href="" class="text-blue-600 hover:underline">Послуги</a>
+            <a href="{{ route('appoinment.index') }}" class="text-blue-600 hover:underline">Прийоми</a>
             <form method="post" action="{{ route('logout') }}" class="inline">
                 @csrf
                 <button type="submit" class="text-red-500 hover:underline">Вийти</button>

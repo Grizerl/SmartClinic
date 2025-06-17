@@ -34,7 +34,7 @@ class AppointmentController extends Controller
         $user = auth()->user();
         $data = array_merge($request->validated(), ['user_id' => $user->id]);
         Appointment::create($data);
-        return redirect()->route('client.dashboard');
+        return redirect()->route('dashboard.home');
     }
 
 }

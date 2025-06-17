@@ -83,7 +83,7 @@ class ServiceController extends Controller
      */
     public function destroy(int $id): RedirectResponse
     {
-       Service::findOrFail($id)->delete();
-       return redirect()->back();
+        Service::findOrFail($id)->delete();
+        return redirect()->back();
     }
 }

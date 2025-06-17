@@ -16,7 +16,7 @@
                         Вийти
                     </button>
                 </form>
-                @can('view', auth()->user())
+                @can('accessAdmin', auth()->user())
                     <a class="underline bg-transparent border-none cursor-pointer p-0 m-0" href="{{ route('dashboard.admin') }}">Адмінка</a>
                 @endcan
             </nav>

@@ -1,23 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Auth\Guest;
+namespace App\Http\Controllers\Auth\Doctor;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
-use App\Models\User;
+use App\Models\Doctor;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    /**
-     * Summary of show
-     * @return View
-     */
     public function show(): View
     {
-        return view('guest.login');
+        return view('doctor.inc.login');
     }
 
     /**
@@ -27,26 +23,15 @@ class LoginController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $user = User::where('phone', $request->phone)
+        $data = Doctor::where('phone', $request->phone)
             ->where('email', $request->email)->first();
 
-        if ($user) {
-            Auth::login($user);
-            return redirect()->route('dashboard.home');
+        if ($data) {
+            Auth::login($data);
+            return redirect()->route('dashboard.doctor');
         }
 
         return redirect()->back();
 
     }
-
-    /**
-     * Summary of logout
-     * @return mixed|RedirectResponse
-     */
-    public function logout(): RedirectResponse
-    {
-        Auth::logout();
-        return redirect()->route('guest.show');
-    }
-
 }
