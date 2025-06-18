@@ -4,7 +4,7 @@ use App\Http\Controllers\Auth\Guest\LoginController;
 use App\Http\Controllers\Auth\Guest\RegisterController;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('guest')->middleware('guest')->group(function () {
+Route::prefix('guest')->middleware('guest')->group(function (): void {
 
     Route::get('/register', [RegisterController::class, 'show'])->name('register.show');
 

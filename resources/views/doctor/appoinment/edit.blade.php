@@ -9,9 +9,12 @@
 
         <div class="mb-4">
             <label for="status" class="block font-semibold mb-1">Статус</label>
-            <input type="text" id="status" name="status" placeholder="Completed or Cancelled"
-                class="w-full border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                @error('status')
+            <select name="status" id="status"  class="w-full border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <option value="scheduled" {{ old('status', $appointment->status) == 'scheduled' ? 'selected' : '' }}>scheduled</option>
+                <option value="completed" {{ old('status', $appointment->status) == 'completed' ? 'selected' : '' }}>completed</option>
+                <option value="cancelled" {{ old('status', $appointment->status) == 'cancelled' ? 'selected' : '' }}>cancelled</option>
+            </select>
+            @error('status')
                 <div class="text-red-600">{{ $message }}</div>
             @enderror
         </div>

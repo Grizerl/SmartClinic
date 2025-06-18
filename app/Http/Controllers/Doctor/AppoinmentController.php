@@ -26,22 +26,6 @@ class AppoinmentController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      */
     public function show(string $id)
@@ -56,10 +40,7 @@ class AppoinmentController extends Controller
      */
     public function edit(int $id): View
     {
-        $doctor = Auth::guard('doctor')->user();
-
-        $appointment = Appointment::where('id', $doctor->id)
-        ->firstOrFail();
+       $appointment = Appointment::findOrFail($id);
 
         return view('doctor.appoinment.edit', compact('appointment'));
     }
@@ -72,14 +53,13 @@ class AppoinmentController extends Controller
      */
     public function update(Request $request, int $id): RedirectResponse
     {
-        $doctor = Auth::guard('doctor')->user();
+        $appointment = Appointment::findOrFail($id);
 
-        $appointment = Appointment::where('id', $doctor->id)
-        ->firstOrFail();
-
-        $appointment->update([
-            'status' => $request->status
+        $data = $request->validate([
+            'status' => 'required|string|in:scheduled,completed,cancelled',
         ]);
+
+        $appointment->update($data);
 
         return redirect()->back();
     }
