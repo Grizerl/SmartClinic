@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="max-w-lg mx-auto bg-white p-6 rounded shadow">
-    <h2 class="text-2xl font-semibold mb-6">Редагувати лікаря</h2>
+    <h2 class="text-2xl font-semibold mb-6">Редагувати дані</h2>
     <form action="{{ route('medical_record.update', $record->id) }}" method="post">
         @csrf
         @method('put')
@@ -37,7 +37,7 @@
 
 
         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
-            Додати запис
+            Змінити запис
         </button>
     </form>
 </div>

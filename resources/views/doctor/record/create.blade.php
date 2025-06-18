@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="max-w-lg mx-auto bg-white p-6 rounded shadow">
-    <h2 class="text-2xl font-semibold mb-6">Додати лікаря</h2>
+    <h2 class="text-2xl font-semibold mb-6">Додати запис</h2>
     <form action="{{ route('medical_record.store') }}" method="post">
         @csrf
 

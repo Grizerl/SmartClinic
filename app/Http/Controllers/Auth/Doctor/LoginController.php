@@ -27,7 +27,8 @@ class LoginController extends Controller
         $data = Doctor::where('phone', $request->phone)
             ->where('email', $request->email)->first();
 
-        if ($data) {
+        if ($data) 
+        {
             Auth::guard('doctor')->login($data);
             $request->session()->regenerate();
             return redirect()->route('dashboard.doctor');

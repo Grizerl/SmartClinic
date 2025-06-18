@@ -7,7 +7,14 @@
     <link href="{{ asset('/assets/css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    @include('partials.header')
+    <header>
+        <div class="d-flex justify-between items-center">
+            <h1>MyClinic</h1>
+            @if (!in_array(Route::currentRouteName(), ['personnel.show', 'personnel.store']))
+                @include('partials.header')
+            @endif
+        </div>
+    </header>
     <main>
         @yield('content')
     </main>

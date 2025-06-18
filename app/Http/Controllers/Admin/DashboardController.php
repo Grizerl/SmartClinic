@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Appointment;
 use App\Models\Doctor;
+use App\Models\Service;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 
@@ -18,7 +19,7 @@ class DashboardController extends Controller
     {
         return view('admin.dashboard', [
             'doctors' => Doctor::count(),
-            'users' => User::count(),
+            'services' => Service::count(),
             'receptions' => Appointment::count(),
         ]);
     }

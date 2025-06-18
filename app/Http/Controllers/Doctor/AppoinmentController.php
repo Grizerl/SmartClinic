@@ -19,18 +19,23 @@ class AppoinmentController extends Controller
     {
         $doctor = Auth::guard('doctor')->user();
 
-        $doctor = $data = Appointment::all();
+        if (!$doctor) 
+        {
+            abort(403, 'Unauthorized');
+        }
 
-        return view('doctor.appoinment.index', compact('doctor'));
+        $appoinments = Appointment::where('doctor_id', $doctor->id)->paginate(15);
+
+        return view('doctor.appoinment.index', compact('appoinments'));
 
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(): RedirectResponse
     {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -40,8 +45,8 @@ class AppoinmentController extends Controller
      */
     public function edit(int $id): View
     {
-       $appointment = Appointment::findOrFail($id);
-
+        $appointment = Appointment::findOrFail($id);
+        
         return view('doctor.appoinment.edit', compact('appointment'));
     }
 
@@ -71,11 +76,7 @@ class AppoinmentController extends Controller
      */
     public function destroy(int $id): RedirectResponse
     {
-        $doctor = Auth::guard('doctor')->user();
-
-        $appointment = Appointment::where('id', $doctor->id)
-        ->firstOrFail()->delete();
-
+        Appointment::findOrFail($id)->delete();
         return redirect()->back();
 
     }

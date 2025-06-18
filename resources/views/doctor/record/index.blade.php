@@ -3,7 +3,7 @@
 @section('content')
 <div class="flex justify-between items-center mb-4">
     <h2 class="text-2xl font-semibold">Медичні записи</h2>
-    <a href="{{ route('medical_record.create') }}" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">+ Додати</a>
+    <a href="{{ route('medical_record.create') }}" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">+ Додати запис</a>
 </div>
 <table class="w-full bg-white rounded shadow text-left">
     <thead class="bg-gray-200">
@@ -27,7 +27,7 @@
                     <form action="{{ route('medical_record.destroy',$record->id) }}" method="post" class="inline">
                         @csrf
                         @method('DELETE')
-                        <button class="text-red-600 hover:underline" onclick="return confirm('Видалити лікаря?')">Видалити</button>
+                        <button class="text-red-600 hover:underline" onclick="return confirm('Видалити запис?')">Видалити</button>
                     </form>
                 </td>
             </tr>

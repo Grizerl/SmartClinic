@@ -8,7 +8,7 @@
 <table class="w-full bg-white rounded shadow text-left">
     <thead class="bg-gray-200">
         <tr>
-            <th class="p-3">Назва</th>
+            <th class="p-3">Назва послуги</th>
             <th class="p-3">Опис</th>
             <th class="p-3">Ціна</th>
             <th class="p-3">Дата створення</th>

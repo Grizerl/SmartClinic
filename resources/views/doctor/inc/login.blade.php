@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Вхід пацієнта')
+@section('title', 'Вхід працівника')
 
 @section('content')
 <div class="form-container">
