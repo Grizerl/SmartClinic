@@ -20,8 +20,7 @@ class RecordController extends Controller
     {
         $doctor = Auth::guard('doctor')->user();
 
-        if (!$doctor) 
-        {
+        if (!$doctor) {
             abort(403, 'Unauthorized');
         }
 
@@ -37,9 +36,8 @@ class RecordController extends Controller
     {
         $doctor = Auth::guard('doctor')->user();
 
-        if (!$doctor) 
-        {
-            abort(403, 'Unauthorized'); 
+        if (!$doctor) {
+            abort(403, 'Unauthorized');
         }
 
         $userIds = Appointment::where('doctor_id', $doctor->id)->pluck('user_id')->unique();
@@ -61,8 +59,7 @@ class RecordController extends Controller
 
         $doctor = Auth::guard('doctor')->user();
 
-        if(!$doctor)
-        {
+        if (!$doctor) {
             abort(403, 'Unauthorized');
         }
 
@@ -86,11 +83,10 @@ class RecordController extends Controller
      */
     public function edit(MedicalRecord $medicalRecord): View
     {
-       $doctor = Auth::guard('doctor')->user();
+        $doctor = Auth::guard('doctor')->user();
 
-        if(!$doctor) 
-        {
-            abort(403, 'Unauthorized'); 
+        if (!$doctor) {
+            abort(403, 'Unauthorized');
         }
 
         $userIds = Appointment::where('doctor_id', $doctor->id)->pluck('user_id')->unique();
@@ -98,8 +94,8 @@ class RecordController extends Controller
         $client = User::where('role', 'user')->whereIn('id', $userIds)->get();
 
         $record = $medicalRecord;
-        
-        return view('doctor.record.edit', compact('client','record'));
+
+        return view('doctor.record.edit', compact('client', 'record'));
     }
 
     /**
@@ -114,8 +110,7 @@ class RecordController extends Controller
 
         $doctor = Auth::guard('doctor')->user();
 
-        if(!$doctor)
-        {
+        if (!$doctor) {
             abort(403, 'Unauthorized');
         }
 

@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\Service;
-use App\Models\User;
 use Illuminate\Contracts\View\View;
 
 class DashboardController extends Controller

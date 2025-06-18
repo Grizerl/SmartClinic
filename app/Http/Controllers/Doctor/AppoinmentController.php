@@ -19,8 +19,7 @@ class AppoinmentController extends Controller
     {
         $doctor = Auth::guard('doctor')->user();
 
-        if (!$doctor) 
-        {
+        if (!$doctor) {
             abort(403, 'Unauthorized');
         }
 
@@ -46,7 +45,7 @@ class AppoinmentController extends Controller
     public function edit(int $id): View
     {
         $appointment = Appointment::findOrFail($id);
-        
+
         return view('doctor.appoinment.edit', compact('appointment'));
     }
 
