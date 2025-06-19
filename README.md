@@ -4,7 +4,7 @@ This is a web application built with Laravel that allows you to manage medical r
 
 ## Technologies Used
 
-- **Laravel 10**
+- **Laravel**
 - **Blade шаблони**
 - **Tailwind CSS**
 - **MySQL**
