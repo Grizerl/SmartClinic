@@ -24,4 +24,7 @@
         @endforeach
     </tbody>
 </table>
+    <div style="margin-top: 15px;">
+        {{ $favor->links() }}   
+    </div>
 @endsection
