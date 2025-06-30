@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Guest\Inc;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -39,7 +39,7 @@ class LoginControllerTest extends TestCase
             'phone' => '+380000000000',
         ]);
 
-        $response->assertRedirect(); 
+        $response->assertRedirect();
         $this->assertGuest();
     }
 }

@@ -16,11 +16,11 @@ class DoctorFactory extends Factory
      */
     public function definition(): array
     {
-         return [
-            'name' => fake()->name(),
-            'specialization' => fake()->randomElement(['Cardiologist', 'Dentist', 'Therapist', 'Neurologist', 'Pediatrician']),
-            'phone' => fake()->phoneNumber(),
-            'email' => fake()->safeEmail(),
+        return [
+           'name' => fake()->name(),
+           'specialization' => fake()->randomElement(['Cardiologist', 'Dentist', 'Therapist', 'Neurologist', 'Pediatrician']),
+           'phone' => fake()->phoneNumber(),
+           'email' => fake()->safeEmail(),
         ];
     }
 }

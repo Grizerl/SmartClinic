@@ -3,8 +3,6 @@
 namespace Tests\Feature\Doctor;
 
 use App\Models\Doctor;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class LoginControllerTest extends TestCase
@@ -26,7 +24,7 @@ class LoginControllerTest extends TestCase
             'email' => 'doctor@example.com'
         ]);
 
-        $response = $this->post(route('personnel.store'),[
+        $response = $this->post(route('personnel.store'), [
             'phone' => '+380501234566',
             'email' => 'doctor@example.com',
         ]);

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Doctor extends Authenticatable
 {
     use HasFactory;
-    
+
     protected $table = "doctors";
     protected $fillable = [
         'name',

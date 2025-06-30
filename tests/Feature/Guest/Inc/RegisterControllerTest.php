@@ -1,8 +1,7 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Guest\Inc;
 
-use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -17,7 +16,7 @@ class RegisterControllerTest extends TestCase
         $response->assertViewIs('guest.register');
     }
 
-    public function test_user_can_register_and_redirects_to_login()
+    public function test_user_can_register_and_redirects_to_login(): void
     {
         $email = fake()->unique()->safeEmail();
         $phone = '+380' . fake()->numerify('### ### ###');
